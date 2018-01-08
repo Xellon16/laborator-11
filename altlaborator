@@ -1,0 +1,82 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+template <typename X> //Am folosit template pt implementarea clasei stack care are elemente de tip T
+class Stack{
+
+public:
+    vector <X> vect;  
+    
+    void push(X x);  
+    
+    void pop(); 
+    
+    bool Empty(); 
+    
+    X top(); 
+
+};
+
+template <typename X>
+void Stack<X>::push(X x)
+{
+        vect.push_back(x); 
+}
+    
+
+
+template <typename X>
+void Stack<X>::pop()
+{
+    if(vect.empty()==0) 
+    
+}
+
+template <typename X>
+bool Stack<X>::Empty()
+{
+    return vect.empty(); 
+}
+
+template <typename X>
+X Stack<X>::top()
+{
+    return vect.back(); 
+}
+
+int main(){
+
+    Stack<int> int_stack; 
+    Stack<float> float_stack; 
+    Stack<char> char_stack;
+
+    float_stack.push(2.5);
+    cout<<float_stack.top()<<endl;
+
+    int_stack.push(1);
+    int_stack.push(2);
+    int_stack.push(3);
+    cout<<int_stack.top()<<endl;
+
+    if(int_stack.Empty() == 0)
+        cout<<"Stiva nu e goala"<<endl;
+    else cout<<"Stiva e goala"<<endl;
+
+    int_stack.push(4);
+    cout<<int_stack.top()<<endl;
+
+    int_stack.pop();
+    int_stack.pop();
+    int_stack.pop();
+    int_stack.pop();
+    if(int_stack.Empty() == 0)
+        cout<<"Stiva nu e goala"<<endl;
+    else cout<<"Stiva e goala"<<endl;
+    
+    char_stack.push('c');
+    cout<<char_stack.top();
+
+    return 0;
+}
